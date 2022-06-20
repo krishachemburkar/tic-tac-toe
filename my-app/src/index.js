@@ -2,23 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// let count_x = 0;
-// let count_o = 0;
-// class Square extends React.Component {
-//   // constructor(props){
-//   //   super(props);
-//   //   this.state = {
-//   //     value: null,
-//   //   };
-//   // }
-//     render() {
-//       return (
-//         <button className="square" onClick={()=> this.props.onClick()}>
-//           {this.props.value}
-//         </button>
-//       );
-//     }
-//   }
+
 function Square(props){
   return(
     <button className='square' onClick={props.onClick}>
@@ -49,8 +33,7 @@ class Board extends React.Component {
       this.setState({
         squares:squares,
         xIsNext: !this.state.xIsNext,
-        // count_x: 0, 
-        // count_o: 0,
+        
       });
       
     }
@@ -62,8 +45,7 @@ class Board extends React.Component {
     }
   
     render() {
-      // let count_x =0;
-      // let count_y =0;
+      
       const winner = calculateWinner(this.state.squares);
       const count = tie(this.state.squares);
       let status;
@@ -73,7 +55,7 @@ class Board extends React.Component {
         reload(this.state.squares)
         if (winner==="X"){
           this.state.count_x = this.state.count_x+1;
-          // console.log(this.state.count_x)
+          
         }
         if (winner==="O"){
           this.state.count_o = this.state.count_o+1;
@@ -139,15 +121,6 @@ class Board extends React.Component {
     }
   }
 
-  // class Player extends React.Component {
-  //   render() {
-  //     return (
-  //       <div></div>
-  //     );
-  //   }
-  // }
-  
-  // ========================================
   
   ReactDOM.render(
     <Game />,
@@ -189,15 +162,3 @@ class Board extends React.Component {
     }
     return count
   }
-
-
-  // function count(winner, count_o, count_x){ 
-  //   if (winner === "X"){
-  //     count_x = count_x + 1;
-  //     return count_x;
-  //   }
-  //   else{
-  //     count_o = count_o + 1;
-  //     return count_o;
-  //   }
-  // }
